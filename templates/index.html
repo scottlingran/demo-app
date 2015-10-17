@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hello, World!</title>
+
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="container">
+	<h1>Internal Tool</h1>
+	<br>
+	<div class="row">		
+		<form id="mainInput">
+			<input type="text" class="form-control input-lg" placeholder="Text input">
+		</form>
+	</div>	
+	<br>
+	<div class="row">
+		<span id="test"></span>
+	</div>
+	<br>
+	<div class="row">
+		<table class="table">      
+		      <thead>
+		        <tr>
+		          <th>#</th>
+		          <th>First Name</th>
+		          <th>Last Name</th>
+		          <th>Username</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		        <tr>
+		          <th scope="row">1</th>
+		          <td>Mark</td>
+		          <td>Otto</td>
+		          <td>@mdo</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">2</th>
+		          <td>Jacob</td>
+		          <td>Thornton</td>
+		          <td>@fat</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">3</th>
+		          <td>Larry</td>
+		          <td>the Bird</td>
+		          <td>@twitter</td>
+		        </tr>
+		      </tbody>
+		    </table>
+
+	</div>
+
+
+	<script>
+		$("#mainInput").submit(function(event) {
+			event.preventDefault()
+			
+			console.log("FORM: SUBMIT")
+			
+			$.ajax({
+				method: "GET",
+				url: "/fetch",
+				data: {
+					name: "Raj"
+				},
+				success: function(data) {
+					
+					$("#test").text(JSON.stringify(data))
+				}
+			})	
+		})	
+		
+	</script>
+</div>
+</body>
+</html>

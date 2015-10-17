@@ -10,12 +10,12 @@ def index():
 @app.route('/fetch')
 def fetch():
 	# Get parameters in URL
-	name = request.args.get("name")
+	val = request.args.get("val")
 	
 	# class.dothing(ip)
 	data = {
 		"a": 1,
-		"name": name
+		"val": val
 	}
 
 	# Convert data to JSON

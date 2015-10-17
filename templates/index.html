@@ -11,7 +11,7 @@
 	<h1>Internal Tool</h1>
 	<br>
 	<div class="row">		
-		<form id="mainInput">
+		<form id="mainForm">
 			<input type="text" class="form-control input-lg" placeholder="Text input">
 		</form>
 	</div>	
@@ -56,7 +56,7 @@
 
 
 	<script>
-		$("#mainInput").submit(function(event) {
+		$("#mainForm").submit(function(event) {
 			event.preventDefault()
 			
 			console.log("FORM: SUBMIT")
@@ -65,7 +65,7 @@
 				method: "GET",
 				url: "/fetch",
 				data: {
-					name: "Raj"
+					val: $("#mainForm input").val()
 				},
 				success: function(data) {
 					
